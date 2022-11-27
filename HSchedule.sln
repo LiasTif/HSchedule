@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSchedule", "HSchedule.csproj", "{2CF3E53C-8B52-43D9-B457-84139805B68D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CF3E53C-8B52-43D9-B457-84139805B68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CF3E53C-8B52-43D9-B457-84139805B68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CF3E53C-8B52-43D9-B457-84139805B68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CF3E53C-8B52-43D9-B457-84139805B68D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {842713E0-5B87-4B3D-8FF8-FA1141FAE0D8}
+	EndGlobalSection
+EndGlobal
