@@ -5,8 +5,19 @@ using System.Windows.Data;
 
 namespace HSchedule.Conventers
 {
+    /// <summary>
+    /// collects data from TextBoxes and returns True(Button enabled) if the fields are filled
+    /// </summary>
     public class RegistrationDataConventer : IMultiValueConverter
     {
+        /// <summary>
+        /// collect values from 3 TextBoxes and check if they are filled to activate the button
+        /// </summary>
+        /// <param name="values"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns>visibility for buttom(bool)</returns>
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (values.Count() >= 3)
