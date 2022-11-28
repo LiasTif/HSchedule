@@ -60,5 +60,20 @@
             </Viewbox>
         </StackPanel>
         <!--#endregion-->
+
+        <Grid Grid.Row="2" Grid.Column="1"
+              Grid.ColumnSpan="2">
+            <!--#region Rows&Columns-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+        </Grid>
     </Grid>
 </UserControl>
