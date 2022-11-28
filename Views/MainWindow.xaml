@@ -21,6 +21,9 @@
                 <DataTemplate DataType="{x:Type viewmodels:SignUpViewModel}">
                     <usercontrols:SignUp/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:MainMenuViewModel}">
+                    <usercontrols:MainMenu/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>

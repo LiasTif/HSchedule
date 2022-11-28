@@ -4,8 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HSchedule.Views.UserControls"
+             xmlns:conventers="clr-namespace:HSchedule.Conventers"
              mc:Ignorable="d" d:Height="1080" d:Width="1960">
+
+    <UserControl.Resources>
+        <conventers:RegistrationDataConventer
+            x:Key="RegistrationDataConventer"/>
+    </UserControl.Resources>
+    
     <Grid Background="#fff">
+        <!--#region Rows&Columns-->
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="1*"/>
@@ -20,13 +28,19 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
-        <Viewbox Grid.Column="1" Grid.Row="1">
+        <!--header-->
+        <Viewbox Grid.Column="1" Grid.Row="1"
+                 Grid.ColumnSpan="4"
+                 Margin="0,0,0,10">
             <TextBlock Text="Регистрация"/>
         </Viewbox>
 
+        <!--#region content-->
         <Grid Grid.Row="2" Grid.Column="1"
               Grid.ColumnSpan="4">
+            <!--#region Rows&Columns-->
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="10*"/>
@@ -41,42 +55,83 @@
                 <ColumnDefinition Width="30*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <!--#endregion-->
 
-            <TextBox Grid.Column="1" Grid.Row="1"
-                     Margin="30" HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="2"
-                     Margin="30" HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="1" Grid.Row="3"
-                     Margin="30" HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center"/>
+            <!--#region TextBoxes-->
+            <!--first name TextBox-->
+            <Viewbox Grid.Column="1" Grid.Row="1"
+                     Margin="0,20,20,20" MaxHeight="75"
+                     HorizontalAlignment="Right">
+                <TextBox HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center" Name="FNameTextBox"
+                     MinWidth="130"/>
+            </Viewbox>
 
+            <!--last name TextBox-->
+            <Viewbox Grid.Column="1" Grid.Row="2"
+                     Margin="0,20,20,20" MaxHeight="75"
+                     HorizontalAlignment="Right">
+                <TextBox HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center" Name="LNameTextBox"
+                     MinWidth="130"/>
+            </Viewbox>
+
+            <!--password TextBox-->
+            <Viewbox Grid.Column="1" Grid.Row="3"
+                     Margin="0,20,20,20" MaxHeight="75"
+                     HorizontalAlignment="Right">
+                <TextBox HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center" Name="PassTextBox"
+                     MinWidth="130"/>
+            </Viewbox>
+            <!--#endregion-->
+            
+            <!--#region TextBlocks-->
+            <!--first name TextBlock-->
             <Viewbox Grid.Column="2" Grid.Row="1"
                      Margin="20" HorizontalAlignment="Left">
                 <TextBlock Text="Имя"/>
             </Viewbox>
+
+            <!--last name TextBlock-->
             <Viewbox Grid.Column="2" Grid.Row="2"
                      Margin="20" HorizontalAlignment="Left">
                 <TextBlock Text="Фамилия"/>
             </Viewbox>
+            <!--password TextBlock-->
             <Viewbox Grid.Column="2" Grid.Row="3"
                      Margin="20" HorizontalAlignment="Left">
                 <TextBlock Text="Пароль"/>
             </Viewbox>
-
-            <Viewbox Grid.Column="1" Grid.Row="4">
+            <!--#endregion-->
+            
+            <!--#region bottom Buttons-->
+            <Viewbox Grid.Column="1" Grid.Row="4"
+                     Grid.ColumnSpan="2">
                 <StackPanel Orientation="Horizontal">
-                    <Viewbox HorizontalAlignment="Left">
+                    <Viewbox HorizontalAlignment="Left" MaxHeight="70"
+                             MinHeight="40" MaxWidth="45">
                         <Button Content="Назад" Margin="10,10,15,10"
-                                Command="{Binding NavigateSignInCommand}"/>
+                                MinWidth="60" Command="{Binding NavigateSignInCommand}"/>
                     </Viewbox>
-                    <Viewbox HorizontalAlignment="Left">
-                        <Button Content="Далее"
-                                Margin="15,10,10,10"/>
+                    
+                    <Viewbox HorizontalAlignment="Left" MaxHeight="70"
+                             MinHeight="40" MaxWidth="45">
+                        <Button Content="Далее" Margin="15,10,10,10"
+                                MinWidth="60" Command="{Binding NavigateMainMenuCommand}">
+                            <Button.IsEnabled>
+                                <MultiBinding Converter="{StaticResource RegistrationDataConventer}">
+                                    <Binding ElementName="FNameTextBox" Path="Text"/>
+                                    <Binding ElementName="LNameTextBox" Path="Text"/>
+                                    <Binding ElementName="PassTextBox" Path="Text"/>
+                                </MultiBinding>
+                            </Button.IsEnabled>
+                        </Button>
                     </Viewbox>
                 </StackPanel>
             </Viewbox>
+            <!--#endregion-->
         </Grid>
+        <!--#endregion-->
     </Grid>
 </UserControl>

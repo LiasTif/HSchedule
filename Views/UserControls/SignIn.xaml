@@ -8,6 +8,7 @@
              d:Height="1080"
              d:Width="1960">
     <Grid Background="#fff">
+        <!--#region Rows&Columns-->
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="3*"/>
@@ -22,17 +23,24 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
-        <Viewbox Grid.Column="2"
-                 Grid.Row="1"
-                 Margin="120">
+        <!--header-->
+        <Viewbox Grid.Column="1" Grid.ColumnSpan="3"
+                 Grid.Row="1" Margin="100"
+                 HorizontalAlignment="Center"
+                 MaxHeight="240">
             <TextBlock Text="HSchedule"/>
         </Viewbox>
 
-        <Viewbox Grid.Column="2"
-                 Grid.Row="2"
-                 Margin="35">
-            <Button Content="Войти" Command="{Binding NavigateSignUpCommand}"/>
+        <!--singUp button-->
+        <Viewbox Grid.Column="2" Grid.Row="2"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Margin="0,25,0,25" MaxHeight="70"
+                 MinHeight="20">
+            <Button MinWidth="60" Content="Войти"
+                    Command="{Binding NavigateSignUpCommand}"/>
         </Viewbox>
     </Grid>
 </UserControl>
