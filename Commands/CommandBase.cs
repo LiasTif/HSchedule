@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace HSchedule.Commands
 {
+    /// <summary>
+    /// template for commands
+    /// </summary>
     public abstract class CommandBase : ICommand
     {
         public event EventHandler CanExecuteChanged;
