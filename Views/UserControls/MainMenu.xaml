@@ -4,7 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HSchedule.ViewModels.UserControls"
+             xmlns:conventers="clr-namespace:HSchedule.Conventers"
              mc:Ignorable="d" d:Height="1080" d:Width="1960">
+
+    <UserControl.Resources>
+        <conventers:GetTasksConventer
+            x:Key="GetTasksConventer"/>
+    </UserControl.Resources>
+
     <Grid Background="#fff">
         <!--#region Rows&Columns-->
         <Grid.RowDefinitions>
@@ -46,9 +53,9 @@
             </Viewbox>
 
             <Viewbox>
-                <Button MaxWidth="60" Margin="5,0,5,0">
+                <Button MaxWidth="120" Margin="5,0,5,0">
                     <Button.Content>
-                        <TextBlock Text="" IsEnabled="False"/>
+                        <TextBlock Text="Добавить задачу" IsEnabled="False"/>
                     </Button.Content>
                 </Button>
             </Viewbox>
@@ -65,8 +72,15 @@
         </StackPanel>
         <!--#endregion-->
 
+        <DataGrid Grid.Row="2" Grid.Column="1"
+                  Grid.ColumnSpan="2" Margin="0,5,0,0"
+                  AutoGenerateColumns="True"
+                  ItemsSource="{Binding
+                    Converter={StaticResource GetTasksConventer}}"/>
+
         <Grid Grid.Row="2" Grid.Column="1"
-              Grid.ColumnSpan="2" Margin="0,5,0,0">
+              Grid.ColumnSpan="2" Margin="0,5,0,0"
+              Visibility="Hidden">
             <!--#region Rows&Columns-->
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -74,7 +88,6 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2.4*"/>
-                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -109,17 +122,6 @@
                      MaxHeight="25" MaxWidth="70">
                 <TextBlock Text="Дата" Foreground="Gray"/>
             </Viewbox>
-
-            <!--last date-->
-            <StackPanel Grid.Column="4" VerticalAlignment="Center">
-                <Viewbox MaxHeight="25" MaxWidth="70">
-                    <TextBlock Text="Последняя" Foreground="Gray"/>
-                </Viewbox>
-                <Viewbox MaxHeight="20" MaxWidth="70">
-                    <TextBlock Text=" дата" Foreground="Gray"/>
-                </Viewbox>
-            </StackPanel>
-            <!--#endregion-->
         </Grid>
     </Grid>
 </UserControl>
