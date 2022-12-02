@@ -12,6 +12,6 @@ namespace HSchedule.Models
         [Required]
         public string LName { get; set; }
         [Required]
-        public string Password { get; set; }
+        public int Password { get; set; }
     }
 }

@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace HSchedule.Views.UserControls
 {
@@ -23,6 +10,21 @@ namespace HSchedule.Views.UserControls
         public SignUp()
         {
             InitializeComponent();
+        }
+
+        private void PassTextBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PassTextBox2.Focus();
+        }
+
+        private void PassTextBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PassTextBox3.Focus();
+        }
+
+        private void PassTextBox3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PassTextBox4.Focus();
         }
     }
 }

@@ -10,6 +10,8 @@
     <UserControl.Resources>
         <conventers:RegistrationDataConventer
             x:Key="RegistrationDataConventer"/>
+        <conventers:GetTextInfoConventer
+            x:Key="GetTextInfoConventer"/>
     </UserControl.Resources>
     
     <Grid Background="#fff">
@@ -63,8 +65,8 @@
                      Margin="0,20,20,20" MaxHeight="75"
                      HorizontalAlignment="Right">
                 <TextBox HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center" Name="FNameTextBox"
-                     MinWidth="130"/>
+                         VerticalContentAlignment="Center" Name="FNameTextBox"
+                         MinWidth="130" Text="{Binding PersonFName}"/>
             </Viewbox>
 
             <!--last name TextBox-->
@@ -73,17 +75,44 @@
                      HorizontalAlignment="Right">
                 <TextBox HorizontalContentAlignment="Center"
                      VerticalContentAlignment="Center" Name="LNameTextBox"
-                     MinWidth="130"/>
+                     MinWidth="130" Text="{Binding PersonLName}"/>
             </Viewbox>
 
-            <!--password TextBox-->
-            <Viewbox Grid.Column="1" Grid.Row="3"
-                     Margin="0,20,20,20" MaxHeight="75"
-                     HorizontalAlignment="Right">
-                <TextBox HorizontalContentAlignment="Center"
-                     VerticalContentAlignment="Center" Name="PassTextBox"
-                     MinWidth="130"/>
-            </Viewbox>
+            <!--password TextBoxes-->
+            <StackPanel Grid.Column="1" Grid.Row="3"
+                        Margin="0,20,20,20" Orientation="Horizontal"
+                        HorizontalAlignment="Right" MaxHeight="75">
+                <Viewbox>
+                    <TextBox VerticalContentAlignment="Center"
+                             Name="PassTextBox1" MinWidth="25"
+                             MaxLength="1" HorizontalContentAlignment="Center"
+                             TextChanged="PassTextBox1_TextChanged"
+                             Text="{Binding PersonPin1}"/>
+                </Viewbox>
+                <Viewbox>
+                    <TextBox VerticalContentAlignment="Center"
+                             Name="PassTextBox2" MinWidth="25"
+                             Margin="10,0,0,0" MaxLength="1"
+                             TextChanged="PassTextBox2_TextChanged"
+                             HorizontalContentAlignment="Center"
+                             Text="{Binding PersonPin2}"/>
+                </Viewbox>
+                <Viewbox>
+                    <TextBox VerticalContentAlignment="Center"
+                             Name="PassTextBox3" MinWidth="25"
+                             Margin="10,0,0,0" MaxLength="1"
+                             TextChanged="PassTextBox3_TextChanged"
+                             HorizontalContentAlignment="Center"
+                             Text="{Binding PersonPin3}"/>
+                </Viewbox>
+                <Viewbox>
+                    <TextBox VerticalContentAlignment="Center"
+                             Name="PassTextBox4" MinWidth="25"
+                             Margin="10,0,0,0" MaxLength="1"
+                             HorizontalContentAlignment="Center"
+                             Text="{Binding PersonPin4}"/>
+                </Viewbox>
+            </StackPanel>
             <!--#endregion-->
             
             <!--#region TextBlocks-->
@@ -123,7 +152,10 @@
                                 <MultiBinding Converter="{StaticResource RegistrationDataConventer}">
                                     <Binding ElementName="FNameTextBox" Path="Text"/>
                                     <Binding ElementName="LNameTextBox" Path="Text"/>
-                                    <Binding ElementName="PassTextBox" Path="Text"/>
+                                    <Binding ElementName="PassTextBox1" Path="Text"/>
+                                    <Binding ElementName="PassTextBox2" Path="Text"/>
+                                    <Binding ElementName="PassTextBox3" Path="Text"/>
+                                    <Binding ElementName="PassTextBox4" Path="Text"/>
                                 </MultiBinding>
                             </Button.IsEnabled>
                         </Button>
