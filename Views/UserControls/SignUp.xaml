@@ -10,8 +10,6 @@
     <UserControl.Resources>
         <conventers:RegistrationDataConventer
             x:Key="RegistrationDataConventer"/>
-        <conventers:GetTextInfoConventer
-            x:Key="GetTextInfoConventer"/>
     </UserControl.Resources>
     
     <Grid Background="#fff">
@@ -147,7 +145,7 @@
                     <Viewbox HorizontalAlignment="Left" MaxHeight="70"
                              MinHeight="40" MaxWidth="45">
                         <Button Content="Далее" Margin="15,10,10,10"
-                                MinWidth="60" Command="{Binding NavigateMainMenuCommand}">
+                                MinWidth="60" Command="{Binding NavigateMainMenuAndSerializeCommand}">
                             <Button.IsEnabled>
                                 <MultiBinding Converter="{StaticResource RegistrationDataConventer}">
                                     <Binding ElementName="FNameTextBox" Path="Text"/>

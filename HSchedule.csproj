@@ -68,6 +68,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\AppExitCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\NavigateMainMenuAndSerializeCommand.cs" />
     <Compile Include="Commands\NavigateMainMenuCommand.cs" />
     <Compile Include="Commands\NavigateSignInCommand.cs" />
     <Compile Include="Commands\NavigateSignUpCommand.cs" />

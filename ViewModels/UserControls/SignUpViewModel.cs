@@ -8,6 +8,8 @@ namespace HSchedule.ViewModels.UserControls
     {
         #region properties
         public string PersonFName { get; set; }
+
+        //public string PersonFName { get; set; }
         public string PersonLName { get; set; }
         public string PersonPinGeneral { get; set; }
 
@@ -20,13 +22,13 @@ namespace HSchedule.ViewModels.UserControls
 
         #region commands
         public ICommand NavigateSignInCommand { get; }
-        public ICommand NavigateMainMenuCommand { get; }
+        public ICommand NavigateMainMenuAndSerializeCommand { get; }
         #endregion
 
         public SignUpViewModel(NavigationStore navigationStore)
         {
             NavigateSignInCommand = new NavigateSignInCommand(navigationStore);
-            NavigateMainMenuCommand = new NavigateMainMenuCommand(navigationStore);
+            NavigateMainMenuAndSerializeCommand = new NavigateMainMenuAndSerializeCommand(navigationStore);
         }
     }
 }
