@@ -10,10 +10,7 @@ namespace HSchedule.Commands
     {
         private readonly NavigationStore _navigationStore;
 
-        public NavigateMainMenuCommand(NavigationStore navigationStore)
-        {
-            _navigationStore = navigationStore;
-        }
+        public NavigateMainMenuCommand(NavigationStore navigationStore) => _navigationStore = navigationStore;
 
         public override void Execute(object parameter)
         {

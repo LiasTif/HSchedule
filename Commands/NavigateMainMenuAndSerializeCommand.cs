@@ -9,25 +9,18 @@ namespace HSchedule.Commands
     /// </summary>
     public class NavigateMainMenuAndSerializeCommand : CommandBase
     {
-        PersonSerialization personSerialization = new PersonSerialization();
-
+        readonly PersonSerialization personSerialization = new PersonSerialization();
         private readonly NavigationStore _navigationStore;
-        private readonly SignUpViewModel _signUpViewModel;
 
-        public NavigateMainMenuAndSerializeCommand(NavigationStore navigationStore)
-        {
-            _navigationStore = navigationStore;
-        }
+        public NavigateMainMenuAndSerializeCommand(NavigationStore navigationStore) => _navigationStore = navigationStore;
 
         public override void Execute(object parameter)
         {
+            // navigate to MainMenuViewModel
             _navigationStore.CurrentViewModel = new MainMenuViewModel(_navigationStore);
 
-            //_signUpViewModel.PersonPinGeneral += _signUpViewModel.PersonPin1 += _signUpViewModel.PersonPin2 +=
-            //    _signUpViewModel.PersonPin3 += _signUpViewModel.PersonPin4;
-
-            personSerialization.CreateNewPerson(_signUpViewModel.PersonFName, _signUpViewModel.PersonLName,
-                _signUpViewModel.PersonPinGeneral);
+            // serialize person
+            personSerialization.CreateNewPerson();
         }
     }
 }

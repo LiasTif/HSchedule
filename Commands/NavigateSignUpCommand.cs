@@ -10,10 +10,7 @@ namespace HSchedule.Commands
     {
         private readonly NavigationStore _navigationStore;
 
-        public NavigateSignUpCommand(NavigationStore navigationStore)
-        {
-            _navigationStore = navigationStore;
-        }
+        public NavigateSignUpCommand(NavigationStore navigationStore) => _navigationStore = navigationStore;
 
         public override void Execute(object parameter)
         {
