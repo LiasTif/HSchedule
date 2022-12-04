@@ -3,14 +3,11 @@ using HSchedule.ViewModels.UserControls;
 
 namespace HSchedule.Commands
 {
-    /// <summary>
-    /// Navigate to SignInViewModel
-    /// </summary>
-    public class NavigateSignInCommand : CommandBase
+    public class NavigateEntranceMenuCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
 
-        public NavigateSignInCommand(NavigationStore navigationStore) => _navigationStore = navigationStore;
+        public NavigateEntranceMenuCommand(NavigationStore navigationStore) => _navigationStore = navigationStore;
 
         public override void Execute(object parameter)
         {

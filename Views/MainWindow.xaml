@@ -15,8 +15,8 @@
     <Grid>
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewmodels:SignInViewModel}">
-                    <usercontrols:SignIn/>
+                <DataTemplate DataType="{x:Type viewmodels:EntranceMenuViewModel}">
+                    <usercontrols:EntranceMenu/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:SignUpViewModel}">
                     <usercontrols:SignUp/>

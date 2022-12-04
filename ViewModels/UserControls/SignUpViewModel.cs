@@ -5,6 +5,8 @@ using System.Windows.Input;
 
 namespace HSchedule.ViewModels.UserControls
 {
+    public delegate void PinDelegate();
+
     public class SignUpViewModel : ViewModelBase
     {
         #region properties

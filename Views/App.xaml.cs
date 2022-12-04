@@ -15,7 +15,7 @@ namespace HSchedule
         {
             NavigationStore navigationStore = new NavigationStore();
 
-            navigationStore.CurrentViewModel = new SignInViewModel(navigationStore);
+            navigationStore.CurrentViewModel = new EntranceMenuViewModel(navigationStore);
 
             MainWindow = new MainWindow()
             {
