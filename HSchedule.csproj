@@ -76,6 +76,7 @@
     <Compile Include="Conventers\GetTasksConventer.cs" />
     <Compile Include="Conventers\GetTextInfoConventer.cs" />
     <Compile Include="Conventers\RegistrationDataConventer.cs" />
+    <Compile Include="Conventers\SignInDataConventer.cs" />
     <Compile Include="Migrations\202212031106272_UpdatedPersonAndtask.cs" />
     <Compile Include="Migrations\202212031106272_UpdatedPersonAndtask.designer.cs">
       <DependentUpon>202212031106272_UpdatedPersonAndtask.cs</DependentUpon>
@@ -98,6 +99,9 @@
     <Compile Include="Views\UserControls\EntranceMenu.xaml.cs">
       <DependentUpon>EntranceMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\SignIn.xaml.cs">
+      <DependentUpon>SignIn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
@@ -118,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\UserControls\EntranceMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\SignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

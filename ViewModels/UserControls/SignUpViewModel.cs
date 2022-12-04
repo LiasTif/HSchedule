@@ -88,13 +88,13 @@ namespace HSchedule.ViewModels.UserControls
         #endregion
 
         #region commands
-        public ICommand NavigateSignInCommand { get; }
+        public ICommand NavigateEntranceMenuCommand { get; }
         public ICommand NavigateMainMenuAndSerializeCommand { get; }
         #endregion
 
         public SignUpViewModel(NavigationStore navigationStore)
         {
-            NavigateSignInCommand = new NavigateSignInCommand(navigationStore);
+            NavigateEntranceMenuCommand = new NavigateEntranceMenuCommand(navigationStore);
             NavigateMainMenuAndSerializeCommand = new NavigateMainMenuAndSerializeCommand(navigationStore);
         }
 

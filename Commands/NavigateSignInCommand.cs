@@ -14,7 +14,7 @@ namespace HSchedule.Commands
 
         public override void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = new EntranceMenuViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new SignInViewModel(_navigationStore);
         }
     }
 }

@@ -33,14 +33,23 @@
             <TextBlock Text="HSchedule"/>
         </Viewbox>
 
-        <!--singUp button-->
         <Viewbox Grid.Column="2" Grid.Row="2"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
-                 Margin="0,25,0,25" MaxHeight="70"
-                 MinHeight="20">
-            <Button MinWidth="60" Content="Войти"
+                 Margin="0,45,0,45" Grid.RowSpan="2">
+            <StackPanel>
+                <!--singUp button-->
+                <Viewbox MaxHeight="70" Margin="0,0,0,30">
+                    <Button MinWidth="60" Content="Войти"
+                    Command="{Binding NavigateSignInCommand}"/>
+                </Viewbox>
+
+                <!--singIn button-->
+                <Viewbox MaxHeight="70">
+                    <Button MinWidth="60" Content="Зарегестрироваться"
                     Command="{Binding NavigateSignUpCommand}"/>
+                </Viewbox>
+            </StackPanel>
         </Viewbox>
     </Grid>
 </UserControl>
