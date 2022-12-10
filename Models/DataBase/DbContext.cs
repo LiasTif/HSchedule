@@ -2,7 +2,7 @@
 
 namespace HSchedule.Models.DataBase
 {
-    internal class DbContext : System.Data.Entity.DbContext
+    public class DbContext : System.Data.Entity.DbContext
     {
         public DbContext() : base("DbHSchedule")
         {

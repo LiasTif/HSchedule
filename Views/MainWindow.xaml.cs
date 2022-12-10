@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using HSchedule.Models.DataBase;
+using System.Windows;
 
 namespace HSchedule.Views
 {
@@ -10,6 +11,11 @@ namespace HSchedule.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using var context = new DbContext();
         }
     }
 }
