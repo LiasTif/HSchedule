@@ -74,8 +74,9 @@
     <Compile Include="Commands\NavigateMainMenuCommand.cs" />
     <Compile Include="Commands\NavigateSignInCommand.cs" />
     <Compile Include="Commands\NavigateSignUpCommand.cs" />
-    <Compile Include="Commands\NewTaskAcceptCommand.cs" />
     <Compile Include="Commands\OpenNewTaskWinCommand.cs" />
+    <Compile Include="Conventers\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Conventers\DateTextBoxConventer.cs" />
     <Compile Include="Conventers\GetTasksConventer.cs" />
     <Compile Include="Conventers\GetTextInfoConventer.cs" />
     <Compile Include="Conventers\RegistrationDataConventer.cs" />
@@ -84,11 +85,15 @@
     <Compile Include="Migrations\202212031106272_UpdatedPersonAndtask.designer.cs">
       <DependentUpon>202212031106272_UpdatedPersonAndtask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202212190016496_UpdateTasks.cs" />
+    <Compile Include="Migrations\202212190016496_UpdateTasks.designer.cs">
+      <DependentUpon>202212190016496_UpdateTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBase\ComparePersons.cs" />
     <Compile Include="Models\DataBase\DbContext.cs" />
     <Compile Include="Models\DataBase\PersonSerialization.cs" />
-    <Compile Include="Models\DataBase\SignInDataHandlerInThread.cs" />
+    <Compile Include="Models\DataBase\TasksDeserialization.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
@@ -163,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202212031106272_UpdatedPersonAndtask.resx">
       <DependentUpon>202212031106272_UpdatedPersonAndtask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212190016496_UpdateTasks.resx">
+      <DependentUpon>202212190016496_UpdateTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

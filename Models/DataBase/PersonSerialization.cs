@@ -4,9 +4,11 @@ namespace HSchedule.Models.DataBase
 {
     public class PersonSerialization
     {
+        #region properties
         public static string FirstName { get; set; }
         public static string LastName { get; set; }
         public static string Pin { get; set; }
+        #endregion
 
         /// <summary>
         /// Create and add to Db new Person
