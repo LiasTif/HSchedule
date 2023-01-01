@@ -42,7 +42,8 @@
                         <TextBlock Text="Обновить"/>
                     </Button.Content>
                 </Button>
-                <Button MaxWidth="60"  Margin="5,0,0,0">
+                <Button MaxWidth="60"  Margin="5,0,0,0"
+                        Command="{Binding OpenProfileWinCommand}">
                     <Button.Content>
                         <TextBlock Text="Профиль"/>
                     </Button.Content>

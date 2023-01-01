@@ -79,8 +79,10 @@
     <Compile Include="Commands\NavigateSignUpCommand.cs" />
     <Compile Include="Commands\OpenNewTaskWinCommand.cs" />
     <Compile Include="Commands\CreateTaskCommand.cs" />
+    <Compile Include="Commands\OpenProfileWinCommand.cs" />
     <Compile Include="Commands\RefreshTasksCommand.cs" />
     <Compile Include="Conventers\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Conventers\HalfOfValueConventer.cs" />
     <Compile Include="Conventers\NewTaskDataConventer.cs" />
     <Compile Include="Conventers\OneTimeTaskConventer.cs" />
     <Compile Include="Conventers\RegistrationDataConventer.cs" />
@@ -113,6 +115,9 @@
     <Compile Include="ViewModels\NewTaskViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\UserControls\SignInViewModel.cs" />
+    <Compile Include="Views\ProfileWindow.xaml.cs">
+      <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -122,7 +127,7 @@
     <Compile Include="Views\UserControls\EntranceMenu.xaml.cs">
       <DependentUpon>EntranceMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\NewTaskWindow.xaml.cs">
+    <Compile Include="Views\NewTaskWindow.xaml.cs">
       <DependentUpon>NewTaskWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\SignIn.xaml.cs">
@@ -131,6 +136,10 @@
     <Compile Include="Views\UserControls\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\ProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,7 +160,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControls\NewTaskWindow.xaml">
+    <Page Include="Views\NewTaskWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace HSchedule.Views.UserControls
+namespace HSchedule.Views
 {
     /// <summary>
     /// Interaction logic for NewTaskWindow.xaml

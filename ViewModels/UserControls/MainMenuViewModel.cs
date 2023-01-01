@@ -13,6 +13,7 @@ namespace HSchedule.ViewModels.UserControls
         #region commands
         public ICommand AppExitCommand { get; }
         public ICommand OpenNewTaskWinCommand { get; }
+        public ICommand OpenProfileWinCommand { get; }
         public ICommand RefreshTasksCommand { get; }
         #endregion
 
@@ -34,6 +35,7 @@ namespace HSchedule.ViewModels.UserControls
         {
             AppExitCommand = new AppExitCommand();
             OpenNewTaskWinCommand = new OpenNewTaskWinCommand();
+            OpenProfileWinCommand = new OpenProfileWinCommand();
             RefreshTasksCommand = new RefreshTasksCommand();
 
             TasksChanged += (sender, e) => { return; };

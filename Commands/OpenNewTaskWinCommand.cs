@@ -1,4 +1,4 @@
-﻿using HSchedule.Views.UserControls;
+﻿using HSchedule.Views;
 
 namespace HSchedule.Commands
 {
