@@ -16,7 +16,7 @@ namespace HSchedule.Conventers
             {
                 using var context = new DbContext();
 
-                // check, is vulues are not empty
+                // check, is values are not empty
                 if (!string.IsNullOrEmpty(values[0].ToString()) && !string.IsNullOrEmpty(values[1].ToString()) &&
                     !string.IsNullOrEmpty(values[2].ToString()) && !string.IsNullOrEmpty(values[3].ToString()) &&
                     !string.IsNullOrEmpty(values[4].ToString()) && !string.IsNullOrEmpty(values[5].ToString()))

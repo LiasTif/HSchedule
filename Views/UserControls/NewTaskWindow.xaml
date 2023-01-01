@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HSchedule.Views.UserControls"
         xmlns:viewModels="clr-namespace:HSchedule.ViewModels"
         xmlns:conventers="clr-namespace:HSchedule.Conventers"
+        xmlns:commands="clr-namespace:HSchedule.Commands"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d" Title="NewTask"
         MinHeight="600" MinWidth="800"
         MaxHeight="720" MaxWidth="1280"
@@ -15,9 +16,18 @@
     <Window.DataContext>
         <viewModels:NewTaskViewModel/>
     </Window.DataContext>
+    
     <Window.Resources>
         <conventers:BooleanToVisibilityConverter
             x:Key="BooleanToVisibilityConverter"/>
+        <conventers:NewTaskDataConventer
+            x:Key="NewTaskDataConventer"/>
+        <conventers:RepeatedTaskConventer
+            x:Key="RepeatedTaskConventer"/>
+        <conventers:OneTimeTaskConventer
+            x:Key="OneTimeTaskConventer"/>
+
+        <commands:CreateTaskCommand x:Key="CreateTaskCommand"/>
     </Window.Resources>
     
     <Grid>
@@ -52,12 +62,18 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <RadioButton VerticalAlignment="Center"
-                                 GroupName="TaskType"/>
+                                 GroupName="TaskType"
+                                 Name="rbRepeatedType"
+                                 IsChecked="{Binding Path=Type,
+                                    Converter={StaticResource RepeatedTaskConventer}}"/>
                     <TextBlock Text="Повторяющаяся задача"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <RadioButton VerticalAlignment="Center"
-                                 GroupName="TaskType"/>
+                                 GroupName="TaskType"
+                                 Name="rbOneTimeType"
+                                 IsChecked="{Binding Type,
+                                    Converter={StaticResource OneTimeTaskConventer}}"/>
                     <TextBlock Text="Одноразовая задача"/>
                 </StackPanel>
             </StackPanel>
@@ -75,7 +91,8 @@
 
             <TextBox Margin="5" FontSize="35"
                      VerticalAlignment="Center"
-                     MinHeight="55"/>
+                     MinHeight="55" Name="tbTaskName"
+                     Text="{Binding Path=Name}"/>
         </Grid>
 
         <!--deadline-->
@@ -88,7 +105,8 @@
                 <TextBlock Text="Дедлайн" Margin="0,0,5,0"
                            VerticalAlignment="Center"/>
                 <DatePicker Visibility="{Binding IsChecked, ElementName=DeadLineCB,
-                                Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                Converter={StaticResource BooleanToVisibilityConverter}}"
+                            SelectedDate="{Binding Path=DeadLine}"/>
             </StackPanel>
         </Viewbox>
 
@@ -127,7 +145,7 @@
             </Viewbox>
             <TextBox Grid.RowSpan="2" Grid.Row="1"
                      Background="LightGray"
-                     Margin="5"/>
+                     Margin="5" Text="{Binding Path=Description}"/>
         </Grid>
 
         <!--menu buttons-->
@@ -139,7 +157,24 @@
                     <Button Content="Отмена" IsCancel="True"/>
                 </Viewbox>
                 <Viewbox>
-                    <Button Content="Подтвердить"/>
+                    <Button Content="Подтвердить"
+                            Command="{StaticResource CreateTaskCommand}">
+                        <Button.IsEnabled>
+                            <MultiBinding Converter="{StaticResource NewTaskDataConventer}">
+                                <Binding ElementName="rbRepeatedType" Path="IsChecked"/>
+                                <Binding ElementName="rbOneTimeType" Path="IsChecked"/>
+                                <Binding ElementName="tbTaskName" Path="Text"/>
+                            </MultiBinding>
+                        </Button.IsEnabled>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:CallMethodAction MethodName="Close"
+                                                    TargetObject="{Binding RelativeSource={RelativeSource
+                                                                           Mode=FindAncestor,
+                                                                           AncestorType=Window}}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
                 </Viewbox>
             </StackPanel>
         </Viewbox>
