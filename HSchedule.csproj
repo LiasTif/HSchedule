@@ -82,9 +82,10 @@
     <Compile Include="Commands\OpenProfileWinCommand.cs" />
     <Compile Include="Commands\RefreshTasksCommand.cs" />
     <Compile Include="Conventers\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Conventers\HalfOfValueConventer.cs" />
+    <Compile Include="Conventers\PartOfValueConventer.cs" />
     <Compile Include="Conventers\NewTaskDataConventer.cs" />
     <Compile Include="Conventers\OneTimeTaskConventer.cs" />
+    <Compile Include="Conventers\PersonNameConventer.cs" />
     <Compile Include="Conventers\RegistrationDataConventer.cs" />
     <Compile Include="Conventers\RepeatedTaskConventer.cs" />
     <Compile Include="Conventers\SignInDataConventer.cs" />
@@ -102,6 +103,7 @@
       <DependentUpon>202212221014127_UpdateTaskObject.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Buffer.cs" />
     <Compile Include="Models\DataBase\ComparePersons.cs" />
     <Compile Include="Models\DataBase\DbContext.cs" />
     <Compile Include="Models\DataBase\PersonSerialization.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NewTaskViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\UserControls\SignInViewModel.cs" />
     <Compile Include="Views\ProfileWindow.xaml.cs">

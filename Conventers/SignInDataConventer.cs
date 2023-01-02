@@ -38,7 +38,10 @@ namespace HSchedule.Conventers
                     for (int i = 1; i < context.Persons.Count(); i++)
                     {
                         if (comparePersons.Compare(person, context.Persons.Find(i)))
+                        {
+                            Models.Buffer.ActualUser = person;
                             return true;
+                        }
                     }
                 }
             }

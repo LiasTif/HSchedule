@@ -4,13 +4,13 @@ using System.Windows.Data;
 
 namespace HSchedule.Conventers
 {
-    public class HalfOfValueConventer : IValueConverter
+    public class PartOfValueConventer : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is double)
             {
-                return (double)value * 0.5;
+                return (double)value * 0.75;
             }
             return null;
         }

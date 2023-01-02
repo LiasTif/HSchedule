@@ -11,7 +11,8 @@
         MinHeight="600" MinWidth="800"
         MaxHeight="720" MaxWidth="1280"
         d:Height="720" d:Width="1280"
-        WindowStyle="ToolWindow">
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner">
 
     <Window.DataContext>
         <viewModels:NewTaskViewModel/>

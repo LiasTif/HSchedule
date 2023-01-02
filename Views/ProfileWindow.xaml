@@ -4,62 +4,78 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:conventers="clr-namespace:HSchedule.Conventers"
+        xmlns:models="clr-namespace:HSchedule.Models"
         mc:Ignorable="d" Title="ProfileWindow"
         MinHeight="600" MinWidth="800"
         MaxHeight="720" MaxWidth="1280"
         d:Height="720" d:Width="1280"
-        WindowStyle="ToolWindow">
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner">
     <Window.Resources>
-        <conventers:HalfOfValueConventer
-            x:Key="HalfOfValueConventer"/>
+        <conventers:PartOfValueConventer
+            x:Key="PartOfValueConventer"/>
+        <conventers:PersonNameConventer
+            x:Key="PersonNameConventer"/>
     </Window.Resources>
     
     <Grid>
         <!--#region rows&columns-->
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.05*"/>
         </Grid.ColumnDefinitions>
         <!--#endregion-->
 
-        <StackPanel Grid.Column="1" Grid.Row="1"
-                    VerticalAlignment="Center">
+        <Viewbox Grid.Row="1" Grid.Column="2"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+            <TextBlock Text="{Binding Path=(models:Buffer.ActualUser),
+                                      Converter={StaticResource PersonNameConventer}}"/>
+        </Viewbox>
+
+        <StackPanel Grid.Column="2" Grid.Row="2"
+                    Margin="10">
             <!--change Name but-->
             <Viewbox x:Name="ChangeNameButVB"
-                     Margin="0,0,0,50">
+                     Margin="0,0,0,20">
                 <Button Content="Сменить Имя/Фамилию"/>
             </Viewbox>
             <!--change Pin but-->
-            <Viewbox Margin="0,0,0,50"
-                     HorizontalAlignment="Stretch"
+            <Viewbox Margin="0,0,0,100"
                      Height="{Binding ElementName=ChangeNameButVB,
                                       Path=ActualHeight}">
-                <Button Content="Сменить Pin"
+                <Button Content="Сменить Пин"
                         HorizontalContentAlignment="Center"/>
             </Viewbox>
-
-            <!--cancel/continue buts-->
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-                <Viewbox Height="{Binding ElementName=ChangeNameButVB,
+        </StackPanel>
+        
+        <!--cancel/continue buts-->
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Grid.Row="3"
+                    Grid.Column="2">
+            <Viewbox Height="{Binding ElementName=ChangeNameButVB,
                                           Path=ActualHeight,
-                                          Converter={StaticResource HalfOfValueConventer}}">
-                    <Button Content="Отмена"/>
-                </Viewbox>
-                <Viewbox Margin="50,0,0,0"
-                         Height="{Binding ElementName=ChangeNameButVB,
-                                          Path=ActualHeight,
-                                          Converter={StaticResource HalfOfValueConventer}}"
-                         Visibility="Collapsed">
-                    <Button Content="Далее"/>
-                </Viewbox>
-            </StackPanel>
+                                          Converter={StaticResource PartOfValueConventer}}">
+                <Button Content="Отмена" IsCancel="True"/>
+            </Viewbox>
+            <Viewbox Margin="50,0,0,0"
+                     Height="{Binding ElementName=ChangeNameButVB,
+                                      Path=ActualHeight,
+                                      Converter={StaticResource PartOfValueConventer}}"
+                     Visibility="Collapsed">
+                <Button Content="Далее"/>
+            </Viewbox>
         </StackPanel>
     </Grid>
 </Window>
