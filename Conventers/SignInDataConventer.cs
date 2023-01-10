@@ -3,7 +3,6 @@ using HSchedule.Models.DataBase;
 using System;
 using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Data;
 
 namespace HSchedule.Conventers
@@ -21,8 +20,6 @@ namespace HSchedule.Conventers
                     !string.IsNullOrEmpty(values[2].ToString()) && !string.IsNullOrEmpty(values[3].ToString()) &&
                     !string.IsNullOrEmpty(values[4].ToString()) && !string.IsNullOrEmpty(values[5].ToString()))
                 {
-                    ComparePersons comparePersons = new ComparePersons();
-
                     // create general pincode
                     string pin = values[2].ToString() + values[3].ToString() + values[4].ToString() + values[5].ToString();
 
@@ -35,14 +32,8 @@ namespace HSchedule.Conventers
                     };
 
                     // compare present person with persons in DataBase
-                    for (int i = 1; i < context.Persons.Count(); i++)
-                    {
-                        if (comparePersons.Compare(person, context.Persons.Find(i)))
-                        {
-                            Models.Buffer.ActualUser = person;
-                            return true;
-                        }
-                    }
+                    NetClient.Client client = new NetClient.Client();
+                    return client.Compare(person);
                 }
             }
             return false;

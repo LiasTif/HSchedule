@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -103,8 +104,7 @@
       <DependentUpon>202212221014127_UpdateTaskObject.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Buffer.cs" />
-    <Compile Include="Models\DataBase\ComparePersons.cs" />
+    <Compile Include="Models\UserBuffer.cs" />
     <Compile Include="Models\DataBase\DbContext.cs" />
     <Compile Include="Models\DataBase\PersonSerialization.cs" />
     <Compile Include="Models\DataBase\TasksDeserialization.cs" />
@@ -112,6 +112,8 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\RefreshTasksScript.cs" />
     <Compile Include="Models\Task.cs" />
+    <Compile Include="NetClient\Client.cs" />
+    <Compile Include="NetClient\IContract.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NewTaskViewModel.cs" />

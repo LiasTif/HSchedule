@@ -1,6 +1,6 @@
 ﻿namespace HSchedule.Models
 {
-    public class Buffer
+    public class UserBuffer
     {
 		private static Person _actualUser;
 
