@@ -12,12 +12,12 @@ namespace HSchedule.ViewModels
 
         public TaskViewModel()
         {
-            CreateTaskCommand = new CreateTaskCommand(Name, Type, DeadLine, NextPerformer, Description);
+            CreateTaskCommand = new CreateTaskCommand();
         }
 
         private Task GetTaskParams()
         {
-            return new Task
+            Task task = new Task
             {
                 Id = this.Id,
                 Name = this.Name,
@@ -27,9 +27,14 @@ namespace HSchedule.ViewModels
                 IsDone = this.IsDone,
                 Description = this.Description
             };
+            StaticBuffer = task;
+
+            return task;
         }
 
         #region properties
+        public static Task StaticBuffer { get; set; }
+
         private int _id;
         public int Id
         {
