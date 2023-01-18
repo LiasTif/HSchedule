@@ -68,7 +68,10 @@
                   AutoGenerateColumns="True"
                   ItemsSource="{Binding Path=Tasks,
                                         UpdateSourceTrigger=PropertyChanged,
-                                        Mode=TwoWay}">
+                                        Mode=TwoWay}"
+                  SelectedValue="{Binding Path=SelectedTask,
+                                          UpdateSourceTrigger=PropertyChanged,
+                                          Mode=TwoWay}">
         </DataGrid>
     </Grid>
 </UserControl>

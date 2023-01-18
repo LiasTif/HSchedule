@@ -15,7 +15,7 @@
         WindowStartupLocation="CenterOwner">
 
     <Window.DataContext>
-        <viewModels:NewTaskViewModel/>
+        <viewModels:TaskViewModel/>
     </Window.DataContext>
     
     <Window.Resources>

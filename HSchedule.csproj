@@ -82,6 +82,7 @@
     <Compile Include="Commands\CreateTaskCommand.cs" />
     <Compile Include="Commands\OpenProfileWinCommand.cs" />
     <Compile Include="Commands\RefreshTasksCommand.cs" />
+    <Compile Include="Commands\UpdateTaskCommand.cs" />
     <Compile Include="Conventers\BooleanToVisibilityConverter.cs" />
     <Compile Include="Conventers\PartOfValueConventer.cs" />
     <Compile Include="Conventers\NewTaskDataConventer.cs" />
@@ -104,6 +105,7 @@
       <DependentUpon>202212221014127_UpdateTaskObject.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DataBase\UpdateTask.cs" />
     <Compile Include="Models\UserBuffer.cs" />
     <Compile Include="Models\DataBase\DbContext.cs" />
     <Compile Include="Models\DataBase\PersonSerialization.cs" />
@@ -116,7 +118,7 @@
     <Compile Include="NetClient\IContract.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\NewTaskViewModel.cs" />
+    <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\UserControls\SignInViewModel.cs" />

@@ -4,6 +4,7 @@ using HSchedule.Models.DataBase;
 using HSchedule.Stores;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace HSchedule.ViewModels.UserControls
@@ -18,15 +19,30 @@ namespace HSchedule.ViewModels.UserControls
         #endregion
 
         #region properties
-        private static List<Task> _tasks = TasksDeserialization.GetTasks();
-
-        public static List<Task> Tasks
+        private static ObservableCollection<TaskViewModel> _tasks = TasksDeserialization.GetTasks();
+        public static ObservableCollection<TaskViewModel> Tasks
         {
             get => _tasks;
             set
             {
-                _tasks = value;
-                OnTasksChanged(EventArgs.Empty);
+                if (value != _tasks)
+                {
+                    _tasks = value;
+                    OnTasksChanged(EventArgs.Empty);
+                }
+            }
+        }
+
+        private TaskViewModel _selectedTask;
+        public TaskViewModel SelectedTask
+        {
+            get => _selectedTask;
+            set
+            {
+                if (value != _selectedTask)
+                {
+                    _selectedTask = value;
+                }
             }
         }
         #endregion
